@@ -5,8 +5,9 @@ using TMPro;
 
 public class playerScript : MonoBehaviour
 {
+    
     public TextMeshProUGUI CountText;
-    //public GameObject winTextObject;
+    public GameObject winTextObject;
 
     private int count;
 
@@ -15,7 +16,7 @@ public class playerScript : MonoBehaviour
     {
         count = 0;
         setCountText();
-        //winTextObject.SetActive(false);
+        winTextObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +33,10 @@ public class playerScript : MonoBehaviour
     void setCountText()
     {
         CountText.text = "Count: " + count.ToString();
+        if(count >= 6)
+        {
+            winTextObject.SetActive(true);
+        }
         
     }
 }
